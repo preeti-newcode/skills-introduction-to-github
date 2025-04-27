@@ -89,6 +89,7 @@ int main(){
     int data,option;
     
     while(1){
+        printf("1)insert    2)Display\n");
         printf("Choose : ");
         scanf("%d",&option);
         switch(option){
