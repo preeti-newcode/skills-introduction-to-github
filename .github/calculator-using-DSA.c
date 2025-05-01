@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int queue[5];
+int queue[3];
 int front=-1;
 int rear=-1;
 
@@ -10,13 +10,10 @@ void insert(int data){
         queue[++rear]=data;
         ++front;
     }
-    else if(rear==3){
+    else if(rear==2){
         rear=-1;
         queue[++rear]=data;
         ++front;
-        if(front==5){
-            front=0;
-        }
     }
     else{
         queue[++rear]=data;
@@ -25,19 +22,19 @@ void insert(int data){
 
 void display(){
     int step=front;
-    
-    while(step != 5){
-        printf("%d  ",queue[step]);
-        ++step;
+    while(step != 3){
+    printf("%d  ",queue[step]);
+    ++step;
     }
     if(front != 0){
         step=0;
         while(step <= rear){
-        printf("%d  ",queue[step]);
-        ++step;
-    }
+            printf("%d  ",queue[step]);
+            ++step;
+        }
     }
 }
+
 
 int math(int first, int second, char sign){
     switch(sign){
@@ -65,7 +62,7 @@ int main(){
     here:
     printf("Enter 2nd Number : ");
     scanf("%d",&val2);
-    printf("\nChoose : \n\t+ Addition           - Substraction\n\t* Multiplication     / Division\n\t%% Remainder\n");
+    printf("\nChoose : \n\t+ Addition           - Substraction\n\t* Multiplication     / Division\n\t%% Remainder\nChoice :");
     scanf(" %c",&sign);
     int result=math(val1,val2,sign);
     printf("\n%d",result);
